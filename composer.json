@@ -1,0 +1,10 @@
+{
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
+    },
+    "require": {
+        "ryangjchandler/standalone-blade": "^0.2.0"
+    }
+}
