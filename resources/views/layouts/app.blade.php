@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html @php language_attributes();  @endphp>
+<html @php language_attributes();  @endphp >
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +26,7 @@
         </div>
     </header>
 
-    <main class="flex-grow px-4 py-4">
+    <main class="px-4">
         @yield('content')
     </main>
 

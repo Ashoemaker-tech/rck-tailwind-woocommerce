@@ -61,16 +61,32 @@ function rck_setup() {
         add_theme_support( 'wc-product-gallery-zoom' );
         add_theme_support( 'wc-product-gallery-lightbox' );
         add_theme_support( 'wc-product-gallery-slider' );
+
         /**
          * Remove WooCommerce Default Styles
          **/
-        // add_filter( 'woocommerce_enqueue_styles', '__return_false' );
+
+        add_filter( 'woocommerce_enqueue_styles', '__return_false' );
         add_filter('woocommerce_show_page_title', '__return_false');
     }
 }
 
 add_action( 'after_setup_theme', 'rck_setup' );
 
+// Override WooCommerce product image sizes
+function override_woocommerce_image_sizes($size) {
+    // Change the image size names and dimensions as per your requirements
+    // Add or modify the image sizes according to your needs
+
+    if (is_array($size)) {
+        $size['width'] = 400;
+        $size['height'] = 400;
+        $size['crop'] = true;
+    }
+
+    return $size;
+}
+add_filter('woocommerce_get_image_size_thumbnail', 'override_woocommerce_image_sizes');
 
 // Add Laravel Blade template engine to WordPress
 require_once get_template_directory() . '/blade.php';
